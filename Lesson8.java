@@ -1,29 +1,28 @@
 import java.util.ArrayList;
 import java.util.List;
-// ‘OŒã¶‰E‚É‚Ì‚İˆÚ“®‚Å‚«Aˆê“x’Ê‚Á‚½Œo˜H‚ğ’Ê‚ç‚È‚¢‘|œƒƒ{ƒbƒg‚ª‚ ‚éB
-// ‚±‚Ìƒƒ{ƒbƒg‚ª12‰ñˆÚ“®‚·‚é‚Æ‚«Al‚¦‚ç‚ê‚éˆÚ“®Œo˜H‚Ìƒpƒ^[ƒ“‚Í‰½’Ê‚è‚©‹‚ß‚éB
+// å‰å¾Œå·¦å³ã«ã®ã¿ç§»å‹•ã§ãã€ä¸€åº¦é€šã£ãŸçµŒè·¯ã‚’é€šã‚‰ãªã„æƒé™¤ãƒ­ãƒœãƒƒãƒˆãŒã‚ã‚‹ã€‚
+// ã“ã®ãƒ­ãƒœãƒƒãƒˆãŒ12å›ç§»å‹•ã™ã‚‹ã¨ãã€è€ƒãˆã‚‰ã‚Œã‚‹ç§»å‹•çµŒè·¯ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã¯ä½•é€šã‚Šã‹æ±‚ã‚ã‚‹ã€‚
 public class Lesson8{
 	    private static final int maxCount = 12 + 1;
         private static int count = 0;
 
     public static void main(String[] args) {
 
-        // Ä‹Nˆ—‚ğ‚·‚é‚½‚ßƒCƒ“ƒi[ƒNƒ‰ƒX‚ğéŒ¾
-        // ğŒ‚ğ–‚½‚·ˆÚ“®Œo˜H‚Ì”‚ğ•Ô‚·
+        // å†èµ·å‡¦ç†ã‚’ã™ã‚‹ãŸã‚ã‚¤ãƒ³ãƒŠãƒ¼ã‚¯ãƒ©ã‚¹ã‚’å®£è¨€
+        // æ¡ä»¶ã‚’æº€ãŸã™ç§»å‹•çµŒè·¯ã®æ•°ã‚’è¿”ã™
         class Check{
             int move( int[][] argArray ) {
 
-                // I—¹ğŒ
+                // çµ‚äº†æ¡ä»¶
                 if ( argArray.length == maxCount ){
                 	count += 1;
                 	return count;
                 }
-                //if ( argArray.length == maxCount + 1 )return 1;
 
             	int movePattern[][] = {{0,1}, {0,-1}, {1,0}, {-1,0}};
             	for( int i=0; i < movePattern.length; i++ ){
 
-            		// ˆÚ“®Ï‚İ‚ÌÀ•W‚ğƒŠƒXƒg‚É•Û
+            		// ç§»å‹•æ¸ˆã¿ã®åº§æ¨™ã‚’ãƒªã‚¹ãƒˆã«ä¿æŒ
             		List<String> pastRoadList = new ArrayList<>();
 
             		for( int j=0; j < argArray.length; j++ ){
@@ -33,16 +32,16 @@ public class Lesson8{
                 		pastRoadList.add(strPastRoad);
             		}
 
-            		// ˆÚ“®Œã‚ÌÀ•W‚ğæ“¾
+            		// ç§»å‹•å¾Œã®åº§æ¨™ã‚’å–å¾—
             		String strAfterMoveX = String.valueOf( argArray[ argArray.length -1 ][0] + movePattern[i][0]);
             		String strAfterMoveY = String.valueOf( argArray[ argArray.length -1 ][1] + movePattern[i][1]);
 
             		String strAfterMove = strAfterMoveX + strAfterMoveY;
 
-            		// ˆÚ“®Ï‚İ‚Å‚È‚¯‚ê‚ÎˆÚ“®
+            		// ç§»å‹•æ¸ˆã¿ã§ãªã‘ã‚Œã°ç§»å‹•
                 	if( !pastRoadList.contains(strAfterMove) ){
 
-                		// ˆÚ“®Ï‚İÀ•W‚ğŠÜ‚ß‚½V‚µ‚¢”z—ñ‚ğ¶¬
+                		// ç§»å‹•æ¸ˆã¿åº§æ¨™ã‚’å«ã‚ãŸæ–°ã—ã„é…åˆ—ã‚’ç”Ÿæˆ
                 		int[][] argArray2 = new int[argArray.length + 1][2];
                 		for(int index=0; index < argArray.length; index++){
                 			argArray2[index][0] = argArray[index][0];
@@ -51,22 +50,21 @@ public class Lesson8{
                 		argArray2[argArray.length][0] = argArray[ argArray.length -1 ][0] + movePattern[i][0];
                 		argArray2[argArray.length][1] = argArray[ argArray.length -1 ][1] + movePattern[i][1];
 
-                		// Ä‹Aˆ—
-//                		count += move(argArray2);
+                		// å†å¸°å‡¦ç†
                 		move(argArray2);
                 	}
             	}
-            // I—¹ğŒ‚ğ–‚½‚³‚È‚¢ê‡Aƒ‹[ƒv‚ªI‚í‚Á‚½‚ç0‚ğ•Ô‚µ‚ÄI—¹
+            // çµ‚äº†æ¡ä»¶ã‚’æº€ãŸã•ãªã„å ´åˆã€ãƒ«ãƒ¼ãƒ—ãŒçµ‚ã‚ã£ãŸã‚‰0ã‚’è¿”ã—ã¦çµ‚äº†
             return 0;
             }
         }
 
-    	// ƒXƒ^[ƒgˆÊ’u‚ÌÀ•W
+    	// ã‚¹ã‚¿ãƒ¼ãƒˆä½ç½®ã®åº§æ¨™
         int[][] argArray = {{0,0}};
 
     	Check moveCheck = new Check();
     	moveCheck.move( argArray );
-        System.out.println( String.format("‘S•”‚Å%d’Ê‚è", count) );
+        System.out.println( String.format("å…¨éƒ¨ã§%dé€šã‚Š", count) );
 
     }
 
