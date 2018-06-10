@@ -2,15 +2,15 @@ public class Lesson9
 {
     public static void main(String[] args) {
 
-        // è¨ˆç®—å‡¦ç†ã‚’ã™ã‚‹ãŸã‚ã‚¤ãƒ³ãƒŠãƒ¼ã‚¯ãƒ©ã‚¹ã‚’å®£è¨€
+        // ŒvZˆ—‚ğ‚·‚é‚½‚ßƒCƒ“ƒi[ƒNƒ‰ƒX‚ğéŒ¾
         class CalcuForLesson9{
             int calcu( int intMale, int intFemale ) {
                 
-                // 0äººã®å ´åˆã‚‚ã‚«ã‚¦ãƒ³ãƒˆã™ã‚‹ãŸã‚+1
+                // 0l‚Ìê‡‚àƒJƒEƒ“ƒg‚·‚é‚½‚ß+1
                 intMale   += 1;
                 intFemale += 1;
                 
-                // å¤šæ¬¡å…ƒé…åˆ—ã‚’ä½œæˆã—0ã§åˆæœŸåŒ–
+                // ‘½ŸŒ³”z—ñ‚ğì¬‚µ0‚Å‰Šú‰»
             	  int[][] peopleAry = new int[intFemale][intMale];
             	  for( int i=0; i < intFemale; i++ ){
             		    for( int j=0; j < intMale; j++ ){
@@ -18,20 +18,20 @@ public class Lesson9
             		    }
             	  }
             	
-            	  // é–‹å§‹æ™‚ã¯ç”·å¥³ã¨ã‚‚ã«0äººã¨ãªã‚‹1é€šã‚Š
+            	  // ŠJn‚Í’j—‚Æ‚à‚É0l‚Æ‚È‚é1’Ê‚è
             	  peopleAry[0][0] = 1;
             	
             	  for( int k=0; k < intFemale; k++ ){
             	      for( int l=0; l < intMale; l++ ){
             	        
-            	          // åŒæ•°ã§ãªã„ã¨ã
+            	          // “¯”‚Å‚È‚¢‚Æ‚«
             	          if( k != l && intMale-l != intFemale-k ){
             	              if( l>0 ){
-            	                  // ç§»å‹•å…ƒã®æ•°ã‚’ç§»å‹•å…ˆã¸åŠ ç®—_ä¸Šç§»å‹•
+            	                  // ˆÚ“®Œ³‚Ì”‚ğˆÚ“®æ‚Ö‰ÁZ_ãˆÚ“®
             	                  peopleAry[k][l] += peopleAry[k][l-1];
             	              }
             	              if( k>0 ){
-            	                  // ç§»å‹•å…ƒã®æ•°ã‚’ç§»å‹•å…ˆã¸åŠ ç®—_å³ç§»å‹•
+            	                  // ˆÚ“®Œ³‚Ì”‚ğˆÚ“®æ‚Ö‰ÁZ_‰EˆÚ“®
             	                  peopleAry[k][l] += peopleAry[k-1][l];
             	              }
             	          }
@@ -45,11 +45,11 @@ public class Lesson9
             }
         }
 
-        // ç”·å¥³ã®æ•°ã‚’è¨­å®š
+        // ’j—‚Ì”‚ğİ’è
     	  int male   = 20;
     	  int female = 10;
     	
-    	  // é–¢æ•°å‘¼ã³å‡ºã—
+    	  // ŠÖ”ŒÄ‚Ño‚µ
     	  CalcuForLesson9 calculation = new CalcuForLesson9();
     	  int answer = calculation.calcu( male,female );
         System.out.println( String.format("Total: %d", answer) );

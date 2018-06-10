@@ -1,15 +1,15 @@
-// 1000ï½9999ã®ã†ã¡ã€Œä¸¦ã‚“ã§ã„ã‚‹æ•°ã®å„æ¡ã®é–“ã«å››å‰‡æ¼”ç®—ã‚’å…¥ã‚ŒãŸè¨ˆç®—çµæœã€ï¼ã€Œå…ƒã®æ•°ã‚’é€†ã‹ã‚‰ä¸¦ã¹ãŸæ•°ã€ã¨ãªã‚‹æ•°ã‚’æ±‚ã‚ã‚‹
-// æœ€ä½ã§ã‚‚ä¸€ã¤ã¯æ¼”ç®—å­ã‚’å…¥ã‚Œã‚‹
+// 1000`9999‚Ì‚¤‚¿u•À‚ñ‚Å‚¢‚é”‚ÌŠeŒ…‚ÌŠÔ‚Él‘¥‰‰Z‚ğ“ü‚ê‚½ŒvZŒ‹‰ÊvuŒ³‚Ì”‚ğ‹t‚©‚ç•À‚×‚½”v‚Æ‚È‚é”‚ğ‹‚ß‚é
+// Å’á‚Å‚àˆê‚Â‚Í‰‰Zq‚ğ“ü‚ê‚é
 public class Lesson2{
 	public static void main(String[]args) throws Exception{
 		int intCreateNumber1, intCreateNumber2, intCreateNumber3,
 			intCreateNumber4, intCreateNumber5, intCreateNumber6;
 		int number = 1000;
 
-		// æ¢ç´¢ç¯„å›²ã¯1000ï½9999
+		// ’Tõ”ÍˆÍ‚Í1000`9999
 		while ( number < 10000 ){
 
-			// å…ƒã®æ•°ã‚’é€†ã‹ã‚‰ä¸¦ã¹ã‚‹
+			// Œ³‚Ì”‚ğ‹t‚©‚ç•À‚×‚é
 			String strNumber = String.valueOf(number);
 			StringBuffer sbReverseNumber = new StringBuffer(strNumber);
 			sbReverseNumber.reverse();
@@ -26,17 +26,17 @@ public class Lesson2{
 			String s3to4 = strDecimal.substring(2,4);
 			String s4 = strDecimal.substring(3,4);
 
-			int int1 = Integer.parseInt(s1); // åƒã®ä½
-			int int1to2 = Integer.parseInt(s1to2); // ä¸Š2æ¡
-			int int1to3 = Integer.parseInt(s1to3); // ä¸Š3æ¡
-			int int2 = Integer.parseInt(s2); // ç™¾ã®ä½
-			int int2to4 = Integer.parseInt(s2to4); // ä¸‹3æ¡
-			int int3 = Integer.parseInt(s3); // åã®ä½
-			int int3to4 = Integer.parseInt(s3to4); // ä¸‹2æ¡
-			int int4 = Integer.parseInt(s4); // ä¸€ã®ä½
+			int int1 = Integer.parseInt(s1); // ç‚ÌˆÊ
+			int int1to2 = Integer.parseInt(s1to2); // ã2Œ…
+			int int1to3 = Integer.parseInt(s1to3); // ã3Œ…
+			int int2 = Integer.parseInt(s2); // •S‚ÌˆÊ
+			int int2to4 = Integer.parseInt(s2to4); // ‰º3Œ…
+			int int3 = Integer.parseInt(s3); // \‚ÌˆÊ
+			int int3to4 = Integer.parseInt(s3to4); // ‰º2Œ…
+			int int4 = Integer.parseInt(s4); // ˆê‚ÌˆÊ
 
-			// ä¹—æ³•ä»¥å¤–ã®æ¼”ç®—å­ã¯æ¡ä»¶ã‚’æº€ãŸã•ãªã„ãŸã‚é™¤å¤–ã™ã‚‹
-			// ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’ç¶²ç¾…
+			// æ–@ˆÈŠO‚Ì‰‰Zq‚ÍğŒ‚ğ–‚½‚³‚È‚¢‚½‚ßœŠO‚·‚é
+			// ƒpƒ^[ƒ“‚ğ–Ô—…
 			intCreateNumber1 = int1 * int2to4;
 			intCreateNumber2 = int1to2 * int3to4;
 			intCreateNumber3 = int1to3 * int4;
@@ -44,7 +44,7 @@ public class Lesson2{
 			intCreateNumber5 = int1 * int2 * int3to4;
 			intCreateNumber6 = int1to2 * int3 * int4;
 
-			// æ¡ä»¶ã‚’æº€ãŸã™ã‹åˆ¤å®š
+			// ğŒ‚ğ–‚½‚·‚©”»’è
 			if( intReverseNumber == intCreateNumber1 || intReverseNumber == intCreateNumber2 ||
 				intReverseNumber == intCreateNumber3 || intReverseNumber == intCreateNumber4 ||
 				intReverseNumber == intCreateNumber5 || intReverseNumber == intCreateNumber6
@@ -52,7 +52,7 @@ public class Lesson2{
 				System.out.println("Answer is " + number + ".");
 			}
 
-			// æ¬¡ã®æ•°ã‚’æ¢ç´¢
+			// Ÿ‚Ì”‚ğ’Tõ
 			number = number + 1;
 
 		}

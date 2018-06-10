@@ -1,41 +1,64 @@
-// 10進数、2進数、8進数のいずれの場合でも回文数となる数字のうち、10進数の10以上で最小の数を求める
-public class Lesson1 {
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+// 年月日をYYYYMMDDの8ケタの整数で表したとき、
+// 2進数に変換して逆から並べ、さらに10進数に戻し、元の日付と同じ日付になるものを探す
+// 期間は1964年10月10日～2020年7月24日とする
+public class Lesson7 {
 	public static void main(String[]args){
-		int number = 11; // 探索開始
 
-		while( true ){
+		// 答えを保持するリスト
+		ArrayList arrAnswer = new ArrayList();
+		// エラーを保持するリスト
+		ArrayList errorList = new ArrayList();
 
-			String strDecimal    = String.valueOf(number);
-			String strBinary = Integer.toBinaryString(number);
-			String strOctal  = Integer.toOctalString(number);
+		DateFormat format = new SimpleDateFormat("yyyyMMdd");
+		format.setLenient(false);
 
-			StringBuffer sbReverseDecimal = new StringBuffer(strDecimal);
-			sbReverseDecimal.reverse();
-			String strReverseDecimal = sbReverseDecimal.toString();
+		for( int day = 19641010; day <= 20200724; day++ ){
 
-			StringBuffer sbReverseBinary = new StringBuffer(strBinary);
-			sbReverseBinary.reverse();
-			String strReverseBinary = sbReverseBinary.toString();
+			try{
+				String strDay1 = String.valueOf(day);
+				String strDay2 = format.format (format.parse(strDay1) );
 
-			StringBuffer sbReverseOctal = new StringBuffer(strOctal);
-			sbReverseOctal.reverse();
-			String strReverseOctal = sbReverseOctal.toString();
-
-			// 回文数か判定
-			if( strDecimal.equals( strReverseDecimal )){
-				if( strBinary.equals( strReverseBinary )){
-					if (strOctal.equals( strReverseOctal )){
-
-						// 最小の回文数を表示し、ループを抜ける
-						System.out.println("Answer is "+number);
-						break;
-					}
+				if ( !strDay1.equals(strDay2) ) {
+					continue;
 				}
+			} catch( ParseException p ) {
+				errorList.add(day);
+				continue;
 			}
 
-		// 奇数のみを探索
-		number += 2;
+			// 日付を2進数へ変換
+			String strBinaryDay = Integer.toBinaryString(day);
+			StringBuffer sbReverseBinaryDay = new StringBuffer(strBinaryDay);
+
+			// 逆から並べる
+			sbReverseBinaryDay.reverse();
+			String strReverseBinaryDay = sbReverseBinaryDay.toString();
+			//int intReverseBinaryDay = Integer.parseInt(strReverseBinaryDay);
+
+			// 再び10進数へ戻す
+			int intDecimalDay = Integer.parseInt(strReverseBinaryDay, 2);
+			//String strDecimalDay = Integer.toBinaryString(intReverseBinaryDay);
+			//int intDecimalDay = Integer.parseInt(strDecimalDay);
+			//int intDecimalDay = Integer.parseInt(strDecimalDay, 2);
+
+			// 元の数と同じか判定
+			if( intDecimalDay == day ){
+				arrAnswer.add(day);
+			}
 
 		}
+
+		// 答えを表示
+		Iterator itrAnswer = arrAnswer.iterator();
+		while( itrAnswer.hasNext() ){
+			System.out.println( "Answer :" +  itrAnswer.next() );
+		}
+
 	}
 }
